@@ -7,10 +7,15 @@
  * 
  * @returns somente os itens definidos.
  */
- export const uniq = <T>(args: T[]): T[] => {
-  args = args.filter(function(elemento, index, self) {
-    return index === self.indexOf(elemento);
-  });
 
-  return args;
+ export const chunk = (valores: number[], tamanho: number): number[][] => {
+  let a: number[][]
+
+    a = valores.reduce((acumulador, item, indice) => {
+    let grupo = Math.floor(indice / tamanho);
+    acumulador[grupo] = [...(acumulador[grupo] || []), item];
+    return acumulador;
+  }, [])
+
+  return a;
 };

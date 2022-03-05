@@ -9,5 +9,11 @@ import { KeyAndValue } from "../../types/keyAndValue";
  * @returns 
  */
 export const fromPairs = (args: KeyAndValue[]): Record<string, unknown> => {
-  return null;
+  let resultado: {} = {};
+    for(let valor of args){
+        resultado[valor[0]] = valor[1]
+    }
+  
+
+  return resultado;
 };
