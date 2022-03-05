@@ -9,5 +9,13 @@
  * @returns somente os itens definidos.
  */
  export const compact = (items: unknown[]): unknown[] => {
-  return null;
+  let resultado = []
+  for(let item of items){
+    if(Boolean(item) == true){
+
+      resultado.push(item)
+    }
+  }
+
+  return resultado;
 };
