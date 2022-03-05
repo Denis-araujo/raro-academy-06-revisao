@@ -11,6 +11,14 @@
  * @param tamanho numero que representa o tamanho máximo de cada grupo.
  * @returns 
  */
-export const chunk = (valores: number[], tamanho: number): number[][] => {
-  return null;
+ export const chunk = (valores: number[], tamanho: number): number[][] => {
+  let a: number[][]
+
+    a = valores.reduce((acumulador, item, indice) => {
+    let grupo = Math.floor(indice / tamanho);
+    acumulador[grupo] = [...(acumulador[grupo] || []), item];
+    return acumulador;
+  }, [])
+
+  return a;
 };
